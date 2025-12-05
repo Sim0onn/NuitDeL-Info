@@ -1,0 +1,451 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* empêche le scroll de page */
+}
+canvas {
+    display: block; /* supprime les marges du canvas */
+}
+/* --- Styles du mini-jeu pour le modal fleur 2 --- */
+/* --- Modal fleurs --- */
+.flowerModal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.flowerModal .closeModal {
+    position: absolute;
+    top: 10px; right: 20px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #fff;
+    z-index: 1010;
+}
+
+#flowerModal1 .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+
+/* --- Mini-jeu dans le modal --- */
+#flowerModal2 .game-container {
+    position: relative;
+    background-image: url('images/panneau_bois.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto; /* comme le jeu standalone */
+    background-position: top center;
+    width: 700px; 
+    aspect-ratio: 404 / 603; 
+    margin-top: 0px;
+}
+
+/* --- Écran vert --- */
+#flowerModal2 .screen-zone {
+    position: absolute;
+    top: 57%;     
+    left: 18%;    
+    width: 32%;    
+    height: 9%;    
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: flex-start; 
+    padding-left: 2%;
+    font-family: 'VT323', monospace;
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.8);
+    letter-spacing: 2px;
+    overflow: hidden;
+}
+
+#flowerModal2 .target-display {
+    font-size: 1.2rem;
+    color: #d35400;
+    margin-bottom: -5px;
+    opacity: 0.8;
+}
+
+#flowerModal2 .input-display {
+    font-size: 2.2rem;
+    color: #2ecc71;
+    white-space: nowrap;
+}
+
+#flowerModal2 .win-message {
+    color: #f1c40f !important;
+    animation: blink 0.5s infinite;
+}
+
+#flowerModal2 .cycler-zone {
+    position: absolute;
+    top: 54.25%;
+    left: 57.5%;
+    width: 15%;
+    height: 11%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Germania One', cursive;
+    font-size: 2rem;
+    color: #3e2723;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.2);
+    user-select: none;
+}
+
+#flowerModal2 .btn-zone {
+    position: absolute;
+    left: 75%;
+    width: 9%;
+    height: 4.5%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'VT323', monospace;
+    font-size: 1.25rem;
+    color: #3e2723;
+    font-weight: bold;
+    opacity: 0.75;
+}
+
+#flowerModal2 .btn-zone:hover { opacity: 1; color: #000; }
+#flowerModal2 #btn-lock { top: 55%; }   
+#flowerModal2 #btn-delete { top: 60%; }
+
+#flowerModal2 .cursor { animation: blink 1s infinite; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+#flowerModal2 input[type="hidden"] { display: none; }
+
+
+
+
+/* ---------------------- */
+/* Styles pour le modal 3 - Victor Chat */
+/* ---------------------- */
+
+#flowerModal3 .main-container {
+    width: 90vw; 
+    max-width: 1000px; 
+    height: 90vh; 
+    max-height: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 5px solid #333; 
+    overflow: hidden;
+    position: relative;
+    background-image: url('images/fond_montagne.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#flowerModal3 .penguin-fixed {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-40%);
+    z-index: 10;
+    width: 25%;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#flowerModal3 .penguin-avatar {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Bulles de dialogue */
+#flowerModal3 .message {
+    position: absolute;
+    z-index: 15;
+    max-width: 40%;
+}
+
+#flowerModal3 .speech-bubble {
+    padding: 15px 20px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 3px solid #333;
+    position: relative;
+    display: inline-block;
+    max-height: 150px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#flowerModal3 .speech-bubble::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+#flowerModal3 .speech-bubble {
+    scrollbar-width: none;
+}
+
+/* Bulles Victor et utilisateur */
+#flowerModal3 .penguin-message {
+    top: 25%;
+    left: 25%;
+}
+
+#flowerModal3 .penguin-message .speech-bubble {
+    background-color: white;
+    color: #333;
+}
+
+#flowerModal3 .user-message {
+    top: 55%;
+    right: 5%;
+}
+
+#flowerModal3 .user-message .speech-bubble {
+    background-color: #E0FFFF;
+    color: #333;
+}
+
+/* Barre de chat en bas */
+#flowerModal3 .input-area {
+    position: absolute;
+    bottom: 20px;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.578);
+    border: 3px solid #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#flowerModal3 #user-input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    outline: none;
+}
+
+#flowerModal3 #user-input::placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+#flowerModal3 #send-button {
+    padding: 10px 20px;
+    background-color: #1b263bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 100px;
+}
+
+#flowerModal3 #send-button:hover {
+    background-color: #778da9ff;
+}
+
+
+
+#flowerModal4 {
+    display: none; /* caché au départ */
+}
+
+#flowerModal4 .modalContent {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+#flowerModal4 .skill-link {
+    color: #1b263bff;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+
+/* Contrôles directionnels - overlay bas droite */
+#controls-overlay {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 6px;
+  pointer-events: none; /* ne gêne pas la souris / touches */
+  z-index: 3000;
+  opacity: 0.4; /* opacité réduite par défaut */
+  transition: opacity 0.18s ease, transform 0.12s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Chaque case */
+#controls-overlay .arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  color: #000000;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  transition: transform 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  pointer-events: none; /* overlay global est non interactif */
+}
+
+/* On rend la flèche "up" centrée en haut (span vide positionné manuellement) */
+#controls-overlay .up    { grid-column: 2 / 3; grid-row: 1 / 2; } /* Haut, centré */
+#controls-overlay .left  { grid-column: 1 / 2; grid-row: 2 / 3; } /* Gauche, centré */
+#controls-overlay .right { grid-column: 3 / 4; grid-row: 2 / 3; } /* Droite, centré */
+#controls-overlay .down  { grid-column: 2 / 3; grid-row: 3 / 4; } /* Bas, centré */
+
+/* Style lorsqu'activé (touche pressée) */
+#controls-overlay .arrow.active {
+  opacity: 1 !important;
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.12);
+}
+
+/* optionnel : réduction sur petits écrans */
+@media (max-width: 480px) {
+  #controls-overlay { width: 88px; height: 88px; right: 12px; bottom: 12px; opacity: 0.20; }
+  #controls-overlay .arrow { font-size: 18px; }
+}
+
+
+
+/* HUD décoratif général */
+#hud-frame {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Traits fins sur chaque bord */
+.hud-side {
+    position: absolute;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.20) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    opacity: 0.35;
+}
+
+/* Haut */
+.hud-top {
+    top: 0;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+}
+
+/* Bas */
+.hud-bottom {
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+}
+
+/* Gauche */
+.hud-left {
+    top: 5%;
+    left: 0;
+    height: 90%;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.20) 50%,
+        rgba(255,255,255,0) 100%
+    );
+}
+
+/* Droite */
+.hud-right {
+    top: 5%;
+    right: 0;
+    height: 90%;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.20) 50%,
+        rgba(255,255,255,0) 100%
+    );
+}
+
+/* Coins décoratifs */
+.hud-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    opacity: 0.45;
+}
+
+/* Positionnement des coins */
+.hud-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.hud-tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+.hud-bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+.hud-br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+/* Optionnel : légère pulsation esthétique */
+.hud-corner {
+    animation: hudPulse 3.8s ease-in-out infinite;
+}
+
+@keyframes hudPulse {
+    0%, 100% { opacity: 0.40; }
+    50% { opacity: 0.65; }
+}
+

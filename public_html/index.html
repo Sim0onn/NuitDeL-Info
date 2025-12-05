@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Modèle 3D OBJ</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  
+  <div class="flowerModal" id="flowerModal1">
+      <span class="closeModal">&times;</span>
+
+      <div class="modal-content">
+          <p><strong>miaou*</strong> Vas parler aux autres animaux que tu vois ! Marcher sur la fleur bleue devrait les interpeller <strong>miaou*</strong></p>
+      </div>
+  </div>
+
+
+
+  <div id="flowerModal2" class="flowerModal" style="display:none;">
+      <span class="closeModal">✖</span>
+      <!-- Conteneur vide pour le mini-jeu -->
+      <div id="flowerGameContainer"></div>
+  </div>
+
+
+
+
+
+
+  <div id="flowerModal3" class="flowerModal" style="display:none;">
+      <span class="closeModal">✖</span>
+      
+      <div class="main-container">
+          <div class="penguin-fixed">
+              <img src="images/pingouin.png" alt="Le Pingouin Teubé" class="penguin-avatar">
+          </div>
+
+          <div class="message penguin-message">
+              <div class="speech-bubble">
+                  Bonjour ! Je suis Victor, le Chat-rlatan. Quel mystère voulez-vous que je sublime avec mon indifférence philosophique ?
+              </div>
+          </div>
+
+          <div class="input-area">
+              <input type="text" id="user-input" placeholder="Écrivez votre message ici...">
+              <button id="send-button">Envoyer</button>
+          </div>
+      </div>
+  </div>
+
+
+  <div id="flowerModal4" class="flowerModal">
+      <div class="modalContent">
+          <span class="closeModal">&times;</span>
+          <p>
+              Si les animaux de cette forêt te fatiguent, vas exposer tes compétences <a href="https://chocolate-eel-538395.hostingersite.com/" target="blank" class="skill-link">là-bas</a>. Des gens auront sûrement besoin de tes talents !
+          </p>
+      </div>
+  </div>
+
+
+
+
+
+  <!-- Three.js stable (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- OBJLoader compatible global (r128) -->
+  <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/OBJLoader.js"></script>
+
+  <!-- MTLLoader compatible global (r128) -->
+  <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/MTLLoader.js"></script>
+  <script src="flowerGame.js"></script>
+  <script src="script.js"></script>
+
+
+  <!-- Ton script -->
+  <script type="module" src="main.js"></script>
+
+
+</body>
+</html>
